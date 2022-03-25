@@ -31,7 +31,7 @@ const Characters = (props) => {
     <CharDiv>
       {characters &&
         characters.map((char,ind) => {
-          return <Character name={char.name} key={char.name} style={{animationdelay:ind + 's'}} />;
+          return <Character name={char.name} key={char.name} birth={char.birth_year} />;
         })}
     </CharDiv>
   );

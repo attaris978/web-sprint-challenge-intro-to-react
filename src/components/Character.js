@@ -1,7 +1,10 @@
 // Write your Character component here
 import styled from "styled-components";
+import Info from "./Info";
 
-const Char = styled.p`
+const Char = styled.div`
+display:flex;
+justify-content:center;
   animation-duration: 3s;
   animation-name: slideinright;
   @keyframes slideinright {
@@ -14,27 +17,14 @@ const Char = styled.p`
       width: 100%;
     }
   }
-  &:hover {
-    color: red;
-    /* animation-duration:2s;
-    animation-name:fadetored;
-    @keyframes fadetored {
-        from{
-            color:white;
-        }
-        50%{
-            color:darkred;
-        }
-        to{
-            color:white;
-        }
-    } */
-  }
 `;
 const Character = (props) => {
-  const { name, order } = props;
-  const timing = order + "s";
-  return <Char style={{animationdelay:timing}}>{name}</Char>;
+  const { name, birth } = props;
+  return (
+    <Char>
+      <Info name={name} birth={birth}/>
+    </Char>
+  );
 };
 
 export default Character;
