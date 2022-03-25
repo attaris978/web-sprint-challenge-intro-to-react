@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import styled from "styled-components";
 import api_url from "./components/constants";
+import Characters from "./components/Characters";
 
 const App = () => {
   const [data, setData] = useState();
@@ -21,7 +22,7 @@ const App = () => {
       
       <div className="App">
         <h1 className="Header">Characters</h1>
-        <p>{data? data[0].name : ""}</p>
+        <Characters characters={data} /> 
       </div>
     ) 
 };
