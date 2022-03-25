@@ -30,8 +30,8 @@ const Characters = (props) => {
   return (
     <CharDiv>
       {characters &&
-        characters.map((char) => {
-          return <Character name={char.name} key={props.name} />;
+        characters.map((char,ind) => {
+          return <Character name={char.name} key={char.name} style={{animationdelay:ind + 's'}} />;
         })}
     </CharDiv>
   );

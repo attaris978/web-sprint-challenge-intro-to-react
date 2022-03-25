@@ -32,8 +32,9 @@ const Char = styled.p`
   }
 `;
 const Character = (props) => {
-  const { name } = props;
-  return <Char>{name}</Char>;
+  const { name, order } = props;
+  const timing = order + "s";
+  return <Char style={{animationdelay:timing}}>{name}</Char>;
 };
 
 export default Character;
