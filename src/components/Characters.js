@@ -5,7 +5,7 @@ const Characters = (props) => {
         <div>
             {characters && characters.map(char => {
                 return (
-                    <Character name={char.name} />
+                    <Character name={char.name} key={props.name}/>
                 )
             }) }
             </div>
