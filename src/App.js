@@ -5,28 +5,23 @@ import api_url from "./components/constants";
 const App = () => {
   const [data, setData] = useState();
 
+  //The error catching may appear redundant, but it is my understanding that fetch will
+  //only through an error on connectivity issues, and any other 
   useEffect(() => {
     const fetchData = async () => {
       const response = await fetch(api_url);
       const json = await response.json();
-      json.ok ? setData(json.results) : console.error(`fetch error: ${json}`);
-      document.querySelector("p").innerText = json.results[0].name;
-      console.log(json.results);
+      response.ok ? setData(json.results) : console.error(`fetch error: ${response.status}`);
+   
     };
     fetchData().catch((err) => console.error(err));
   }, []);
-  // Try to think through what state you'll need for this app before starting. Then build out
-  // the state properties here.
-
-  // Fetch characters from the API in an effect hook. Remember, anytime you have a
-  // side effect in a component, you want to think about which state and/or props it should
-  // sync up with, if any.
-
+  
     return ( 
       
       <div className="App">
         <h1 className="Header">Characters</h1>
-        <p>Hi</p>
+        <p>{data? data[0].name : ""}</p>
       </div>
     ) 
 };
