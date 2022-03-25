@@ -12,7 +12,8 @@ const App = () => {
     const fetchData = async () => {
       const response = await fetch(api_url);
       const json = await response.json();
-      response.ok ? setData(json.results) : console.error(`fetch error: ${response.status}`);
+      console.log(json);
+      response.ok ? setData(json) : console.error(`fetch error: ${response.status}`);
    
     };
     fetchData().catch((err) => console.error(err));
