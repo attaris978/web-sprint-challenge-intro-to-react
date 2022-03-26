@@ -79,10 +79,24 @@ After finishing your required elements, you can push your work further. These go
 Be prepared to demonstrate your understanding of this week's concepts by answering questions on the following topics. Put your answers underneath the questions:
 
 1. What is React JS and what problems does it solve? Support your answer with concepts introduced in class and from your personal research on the web.
-Answer 1.
-1. Describe component state.
-In ReactJS, the term state refers to 
-1. Describe props.
-Answer 3.
-1. What are side effects, and how do you sync effects in a React component to changes of certain state or props?
-Answer 4.
+  
+  ReactJS is an open-source javascript library which allows for rapid development of User Interfaces by harnessing the unifying power of components. This allows UIs to be constructed in a modular manner with reusable components (the term modular being used in both the classical sense and in the JS-modules sense). ReactJS allows for HTML and CSS to be fluidly integrated with javascript, allowing each component to be constructed in place, as a unified whole, without having to bounce around between .js, .css., and .html files, scattering the myriad pieces of each component in so many different locations.
+
+  Imagine you're constructing a profession-looking Lego shopping mall (is there a such thing as a profession Lego builder? No matter.). Rather than just adding and removing Lego pieces as the whim takes you, you'd want to plan things out ahead. Furthermore, you'd notice that there's a great deal of repetition going on in your construction. You'd want to figure out which parts of your construction you can do assembly-line style, and which elements of each store or area have to be individualized. Then, as you plan out how to put together each section, you'd visualize the process, turning the model over and over again in your head and running through the construction steps. Finally, you'd grab the Legos and apply the process that you just imagined.
+  
+  This is similar to the way React operates. React creates what is called the ReactDOM. This exists as a sort of conceptual construct. The React MotherBrain runs through the code it's been given, mentally updating the ReactDOM per instruction. When it has enough changes processed, it batch-applies them to the actual DOM, but only updating the parts which are actually changed (as opposed to directly changing the actual DOM for each step which is notoriously cumbersome).This can provide some considerable speed benefits.
+
+  Components make this process considerably more efficient. Components are essentially functions which produce reusable pieces of a UI -- just like stores or kiosks or parking spaces or elevators are manufactured elements of a mall. UIs are comprised of <div> and <p> and <button> elements which tend to follow the same pattern for construction. Components handle that construction for the React MotherBrain.
+
+  Ultimately, however, the whole purpose of the UI is to convey information. Each store needs its own sign and content. Some parking spaces are handicapped, others are contactless-pickup. And all of these individualizing-details tend to change over time, as well. This is where React introduces the concept of 'state.' State is essentially the sum of all individualized data at any given moment in time. This data is typically handled by the primary component, the one in which all other components reside. In React applications, this component is traditionally called "App." App is the equivalent of the high-mucketty-muck in charge of Lego mall construction, and is considered the "source of truth" for the application.  
+
+  This concept of "source of truth" is essential to the functioning of the application. All truth originates in this App component (state items are declared through the {useState} hook) and it is passed down as needed to its inner components (and to their inner components, and to theirs) by including the requisite data items in each element's properties (known familiarly as "props"). These components are forbidden from directly altering the data, though the App may pass down to them the ability to call one of App's own methods to update the data. 
+
+  The more errant-thinking reader might now be asking: but how does this self-contained application then interact with the document object or external apis? To start, App selectively renders to the dom whichever components it determines to be needful using the ReactDOM.render() method. Then, through the {useEffect} hook, it can send a GET request to an external API, can set or remove an eventListener, or can selectively update components with changing state data. This allows for the synchronization of effects with various happenings throughout a components lifetime (and effectively replaces the componentDidMount, componentDidUpdate, and componentWillUnmount methods).
+
+2. Describe component state.
+See above.
+3. Describe props.
+See above.
+4. What are side effects, and how do you sync effects in a React component to changes of certain state or props?
+See above.
